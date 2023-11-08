@@ -8,9 +8,6 @@ RUN apk add --no-cache nodejs npm git && \
 # Set work directory
 WORKDIR /app
 
-# Copy PM2 ecosystem config file
-COPY ecosystem.config.js /app
-
 # Copy the run script
 COPY run.sh /
 RUN chmod a+x /run.sh

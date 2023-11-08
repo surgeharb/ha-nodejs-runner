@@ -19,6 +19,3 @@ pm2 start npm --name "app" -- start -- --port "$PORT"
 
 # Save the PM2 process list and gracefully stop PM2 on exit
 trap "pm2 save && pm2 stop all && pm2 delete all" SIGTERM SIGHUP
-
-# Start PM2 daemon
-pm2-runtime start ecosystem.config.js
