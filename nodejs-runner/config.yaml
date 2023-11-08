@@ -16,9 +16,11 @@ options:
   script_name: 'start'
   prerun_script_name: ''
   port: 3000
+  bun: false
 schema:
   prerun_script_name: str
   script_name: str
   repository: str
   branch: str
   port: port
+  bun: bool

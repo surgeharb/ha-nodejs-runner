@@ -1,8 +1,11 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Install Node.js, npm, Git, and PM2
+# Install Node.js, npm, Git
 RUN apk add --no-cache nodejs npm git
+
+# Install bun
+RUN curl -fsSL https://bun.sh/install | bash
 
 # Set work directory
 WORKDIR /app
