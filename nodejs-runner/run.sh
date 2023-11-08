@@ -1,6 +1,7 @@
 #!/usr/bin/with-contenv bashio
 
 # Read the repository, branch, and port from the options
+SCRIPT_NAME=$(bashio::config 'script_name')
 REPOSITORY=$(bashio::config 'repository')
 BRANCH=$(bashio::config 'branch')
 PORT=$(bashio::config 'port')
