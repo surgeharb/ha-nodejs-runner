@@ -16,7 +16,10 @@ cd /app
 # Install dependencies
 npm install
 
-npm run $PRERUN_SCRIPT_NAME
+# Run the pre-run script if exists
+if [ -f "$PRERUN_SCRIPT_NAME" ]; then
+    bash "$PRERUN_SCRIPT_NAME"
+fi
 
 # Start the application using NPM
 npm run $SCRIPT_NAME -- --port "$PORT"
