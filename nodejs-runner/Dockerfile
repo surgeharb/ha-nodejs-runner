@@ -13,4 +13,4 @@ RUN chmod a+x /run.sh
 
 CMD [ "/run.sh" ]
 
-EXPOSE 3000-4000
+EXPOSE 5000

@@ -12,7 +12,7 @@ echo "1: Cloning the repository"
 git clone --branch "$BRANCH" "$REPOSITORY" /app
 
 echo "2: Navigating to the app directory"
-cd /app
+cd /app || exit
 
 echo "3: Installing dependencies"
 if [ "$BUN" = true ]; then
@@ -23,10 +23,15 @@ else
     npm install
 fi
 
-echo "4: Running the pre-run script if it exists"
-if [ -f "$PRERUN_SCRIPT_NAME" ]; then
-    echo "Executing pre-run script: $PRERUN_SCRIPT_NAME"
-    npm run $PRERUN_SCRIPT_NAME
+echo "4: Running the pre-run script if it exists ($PRERUN_SCRIPT_NAME)"
+if [ -n "$PRERUN_SCRIPT_NAME" ]; then
+    if [ "$BUN" = true ]; then
+        echo "Running pre-run script using bun..."
+        npx bun run "$PRERUN_SCRIPT_NAME"
+    else
+        echo "Running pre-run script using npm..."
+        npm run "$PRERUN_SCRIPT_NAME"
+    fi
 else
     echo "No pre-run script found."
 fi
@@ -34,8 +39,8 @@ fi
 echo "5: Starting the application"
 if [ "$BUN" = true ]; then
     echo "Using bun..."
-    npx bun run $SCRIPT_NAME --port "$PORT"
+    npx bun run "$SCRIPT_NAME" --port "$PORT"
 else
     echo "Using npm..."
-    npm run $SCRIPT_NAME -- --port "$PORT"
+    npm run "$SCRIPT_NAME" -- --port "$PORT"
 fi
