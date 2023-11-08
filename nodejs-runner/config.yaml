@@ -10,17 +10,17 @@ arch:
   - armv7
   - i386
 startup: services
+ports:
+  3250/tcp: 3250
 options:
   repository: ''
   branch: 'main'
   script_name: 'start'
   prerun_script_name: ''
-  port: 5000
-  bun: false
+  use_bun: false
 schema:
   prerun_script_name: str
   script_name: str
   repository: str
   branch: str
-  port: port
-  bun: bool
+  use_bun: bool
