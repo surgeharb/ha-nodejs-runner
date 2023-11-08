@@ -2,8 +2,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 # Install Node.js, npm, Git, and PM2
-RUN apk add --no-cache nodejs npm git && \
-    npm install -g pm2
+RUN apk add --no-cache nodejs npm git
 
 # Set work directory
 WORKDIR /app

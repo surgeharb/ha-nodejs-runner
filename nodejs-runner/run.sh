@@ -14,8 +14,5 @@ cd /app
 # Install dependencies
 npm install
 
-# Start the application using PM2
-pm2 start npm --name "app" -- start -- --port "$PORT"
-
-# Save the PM2 process list and gracefully stop PM2 on exit
-trap "pm2 save && pm2 stop all && pm2 delete all" SIGTERM SIGHUP
+# Start the application using NPM
+npm run $SCRIPT_NAME -- --port "$PORT"
