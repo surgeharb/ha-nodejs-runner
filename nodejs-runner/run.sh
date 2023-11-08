@@ -18,7 +18,7 @@ npm install
 
 # Run the pre-run script if exists
 if [ -f "$PRERUN_SCRIPT_NAME" ]; then
-    bash "$PRERUN_SCRIPT_NAME"
+    npm run $PRERUN_SCRIPT_NAME
 fi
 
 # Start the application using NPM
