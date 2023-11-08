@@ -1,6 +1,6 @@
 name: 'Node.js Runner'
 description: 'Clone a GitHub repo and run its Node.js script'
-version: '1.0.3'
+version: '1.0.4'
 slug: 'ha-nodejs-runner'
 init: false
 arch:
@@ -14,6 +14,7 @@ options:
   repository: ''
   branch: 'main'
   script_name: 'start'
+  prerun_script_name: 'build'
   port: 3000
 schema:
   script_name: str
