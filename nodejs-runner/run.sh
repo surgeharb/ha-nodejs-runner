@@ -16,10 +16,10 @@ cd /app
 
 echo "3: Installing dependencies"
 if [ "$BUN" = true ]; then
-    echo "Using bun..."
-    bun install
+    echo "Installing dependencies using bun..."
+    npx bun install
 else
-    echo "Using npm..."
+    echo "Installing dependencies using npm..."
     npm install
 fi
 
@@ -34,7 +34,7 @@ fi
 echo "5: Starting the application"
 if [ "$BUN" = true ]; then
     echo "Using bun..."
-    bun run $SCRIPT_NAME --port "$PORT"
+    npx bun run $SCRIPT_NAME --port "$PORT"
 else
     echo "Using npm..."
     npm run $SCRIPT_NAME -- --port "$PORT"

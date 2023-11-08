@@ -4,9 +4,6 @@ FROM $BUILD_FROM
 # Install Node.js, npm, Git
 RUN apk add --no-cache nodejs npm git
 
-# Install bun
-CMD [ "npm", "install", "-g", "bun"]
-
 # Set work directory
 WORKDIR /app
 
