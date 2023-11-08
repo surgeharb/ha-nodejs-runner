@@ -5,7 +5,7 @@ FROM $BUILD_FROM
 RUN apk add --no-cache nodejs npm git
 
 # Install bun
-RUN curl -fsSL https://bun.sh/install | bash
+npm install -g bun
 
 # Set work directory
 WORKDIR /app
